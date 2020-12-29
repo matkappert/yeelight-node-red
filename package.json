@@ -1,0 +1,26 @@
+{
+    "name": "yeelight-node-red",
+    "version": "0.0.1",
+    "description": "A simple wrapper for yeelight-node",
+    "dependencies": {
+        "yeelight-node": "~1.1.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/matkappert/yeelight-node-red.git"
+    },
+    "license": "Apache-2.0",
+    "keywords": [
+        "node-red",
+        "yeelight"
+    ],
+    "node-red": {
+        "nodes": {
+            "yeelight-node-red": "yeelight-node-red.js"
+        }
+    },
+    "author": {
+        "name": "Mathew Kappert",
+        "email": "matkappert@gmail.com"
+    }
+}

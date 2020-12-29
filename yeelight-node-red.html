@@ -1,0 +1,71 @@
+<script type="text/x-red" data-template-name="yeelight-node-red-lights">
+    <div class="form-row">
+        <label for="node-config-input-name">Name:</label>
+        <input type="text" id="node-config-input-name" placeholder="Yeelight Colour">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-ip">IP:</label>
+        <input type="text" id="node-config-input-ip" placeholder="10.0.0.0">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port">Port:</label>
+        <input type="number" id="node-config-input-port" placeholder="55443" >
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('yeelight-node-red-lights',{
+        category: 'config',
+        defaults: {
+            name: {value:"Yeelight Colour"},
+            ip: {value:"10.0.0.1"},
+            port: {value:55443},
+        },
+        credentials: {
+            name: {type:"text",required:true},
+            ip: {type:"text",required:true},
+            port: {type: "number",required:false}
+        },
+        label: function() {
+           return `${this.name} (${this.ip})` || "Yeelight Colour";
+        }
+    });
+</script>
+
+
+
+
+
+<script type="text/x-red" data-template-name="yeelight">
+    <div class="form-row">
+        <label for="node-input-name">Name:</label>
+        <input type="text" id="node-input-name" placeholder="Yeelight Colour">
+    </div>
+    <div class="form-row">
+        <label for="node-input-lights">Light:</label>
+        <input type="text" id="node-input-lights">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="yeelight"> 
+    <p>@TODO</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('yeelight',{
+        category: 'home-output',
+        defaults: {
+            name: {value:"Yeelight Colour"},
+            lights: {type: "yeelight-node-red-lights", required: true}
+        },
+        color:"#e35144",
+        inputs:1,
+        outputs:1,
+        icon: "light.svg",
+        align: "left",
+        label: function() {
+            return this.name || "Yeelight Colour";
+        }
+    });
+</script>
+
